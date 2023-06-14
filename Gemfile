@@ -4,8 +4,8 @@ eval_gemfile(dev_gemfile) if File.exist?(dev_gemfile)
 gemspec
 
 group :test do
-  gem 'rake', '~> 10.1.0'
-  gem 'minitest'
+  gem 'rake', '~> 13.0'
+  gem 'minitest', '5.18'
   gem 'minitest-spec-context'
   gem 'simplecov'
   gem 'mocha'
