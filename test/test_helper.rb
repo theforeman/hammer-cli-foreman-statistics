@@ -22,6 +22,11 @@ FOREMAN_VERSION = Gem::Version.new(ENV['TEST_API_VERSION'] || '2.1')
 include HammerCLI::Testing::CommandAssertions
 include HammerCLIForeman::Testing::APIExpectations
 HammerCLI.context[:api_connection].create('foreman') do
-  api_connection({}, FOREMAN_VERSION)
+  HammerCLI::Apipie::ApiConnection.new(
+    apidoc_cache_dir: 'test/data/' + FOREMAN_VERSION.to_s,
+    apidoc_cache_name: 'foreman_api',
+    dry_run: true
+  )
 end
 
+require 'hammer_cli_foreman_statistics'
