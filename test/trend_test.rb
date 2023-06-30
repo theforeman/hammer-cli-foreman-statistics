@@ -16,7 +16,7 @@ describe 'trend' do
     it 'should return a list of trends' do
       api_expects(:trends, :index, 'List trends').returns(@trends)
       result = run_cmd(@cmd)
-      result.exit_code.must_equal HammerCLI::EX_OK
+      _(result.exit_code).must_equal HammerCLI::EX_OK
     end
   end
 
@@ -36,7 +36,7 @@ describe 'trend' do
       api_expects(:trends, :show, 'Show trend').returns(@trend)
 
       result = run_cmd(@cmd + params)
-      result.exit_code.must_equal HammerCLI::EX_OK
+      _(result.exit_code).must_equal HammerCLI::EX_OK
     end
   end
 
@@ -50,7 +50,7 @@ describe 'trend' do
 
       api_expects_no_call
       result = run_cmd(@cmd)
-      assert_match(expected_result, result.err)
+      _(result.err).must_match(expected_result)
     end
 
     it 'should create a trend' do

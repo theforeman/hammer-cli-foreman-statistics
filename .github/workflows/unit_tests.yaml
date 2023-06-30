@@ -36,8 +36,6 @@ jobs:
       - name: Get hammer-cli-foreman-statistics
         uses: actions/checkout@v2
         with:
-          repository: theforeman/hammer-cli-foreman-statistics
-          ref: master
           path: hammer-cli-foreman-statistics
       - name: Configure local gem dependencies
         run: |
